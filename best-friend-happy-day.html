@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Лучший друг — Cамое тёплое поздравление!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Pacifico&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg1: #0f0c29;
+      --bg2: #302b63;
+      --bg3: #24243e;
+      --accent: #ffcc00;
+      --accent-2: #00ffd0;
+      --text: #f6f7fb;
+      --muted: #c9ccdf;
+      --glass: rgba(255,255,255,0.08);
+      --glass-strong: rgba(255,255,255,0.14);
+      --shadow: 0 10px 35px rgba(0,0,0,0.35);
+    }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      color: var(--text);
+      font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: radial-gradient(1200px 800px at 80% -20%, #5b54ff22 0%, transparent 60%),
+                  radial-gradient(900px 600px at -10% 120%, #ff7ab322 0%, transparent 60%),
+                  linear-gradient(135deg, var(--bg1), var(--bg2) 50%, var(--bg3));
+      overflow-x: hidden;
+    }
+
+    /* Мягкое свечение точек фона */
+    .stars {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      background: radial-gradient(circle at 10% 20%, #ffffff11 0 2px, transparent 3px),
+                  radial-gradient(circle at 80% 30%, #ffffff0f 0 2px, transparent 3px),
+                  radial-gradient(circle at 60% 80%, #ffffff12 0 2px, transparent 3px),
+                  radial-gradient(circle at 25% 75%, #ffffff10 0 2px, transparent 3px);
+      background-size: 200px 200px, 260px 260px, 180px 180px, 220px 220px;
+      animation: twinkle 6s linear infinite;
+      z-index: 0;
+    }
+    @keyframes twinkle {
+      0%, 100% { opacity: 0.7; }
+      50% { opacity: 1; }
+    }
+
+    header.hero {
+      position: relative;
+      z-index: 2;
+      padding: 64px 20px 20px;
+      text-align: center;
+    }
+    .headline {
+      font-family: 'Pacifico', cursive;
+      font-size: clamp(32px, 6vw, 64px);
+      letter-spacing: 1px;
+      color: #fff;
+      text-shadow: 0 0 12px #7cf4ff66, 0 0 28px #00ffd055;
+      margin: 0 0 12px 0;
+    }
+    .subline {
+      font-weight: 600;
+      font-size: clamp(16px, 2.5vw, 22px);
+      color: var(--muted);
+      margin: 0 0 24px 0;
+    }
+
+    .ribbon {
+      display: inline-block;
+      padding: 10px 18px;
+      background: linear-gradient(90deg, #ffb703, #ffd166, #ffb703);
+      color: #2a2a2a;
+      border-radius: 999px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+      box-shadow: var(--shadow);
+      animation: floaty 4.5s ease-in-out infinite;
+    }
+    @keyframes floaty {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    main {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: minmax(0, 1000px);
+      justify-content: center;
+      padding: 24px 16px 80px;
+      gap: 24px;
+    }
+
+    .card {
+      background: linear-gradient(180deg, var(--glass), transparent 80%), rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(8px);
+      overflow: hidden;
+    }
+    .card .inner {
+      padding: clamp(18px, 3vw, 28px);
+    }
+
+    .title {
+      font-size: clamp(22px, 3.5vw, 32px);
+      margin: 0 0 12px 0;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .title .emoji { filter: drop-shadow(0 2px 6px rgba(255,255,255,0.25)); }
+
+    .message {
+      line-height: 1.7;
+      font-size: clamp(16px, 2.6vw, 20px);
+      color: #eef1ff;
+      margin: 0;
+      white-space: pre-line;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+      padding: 16px;
+    }
+
+    .mini {
+      background: var(--glass-strong);
+      border: 1px solid rgba(255,255,255,0.16);
+      border-radius: 14px;
+      padding: 16px;
+    }
+    .mini h4 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+      color: #e9ecff;
+    }
+    .mini p {
+      margin: 0;
+      color: #d6d9f3;
+      font-size: 14px;
+      line-height: 1.6;
+    }
+
+    .signature {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 16px;
+      background: linear-gradient(90deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border-top: 1px dashed rgba(255,255,255,0.18);
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    /* Кнопки действий */
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
+    .btn {
+      appearance: none;
+      border: none;
+      padding: 12px 18px;
+      border-radius: 12px;
+      cursor: pointer;
+      font-weight: 700;
+      letter-spacing: 0.2px;
+      color: #1c1f2e;
+      background: linear-gradient(135deg, #00ffd0, #7cf4ff);
+      box-shadow: 0 8px 22px rgba(0, 255, 208, 0.25);
+      transition: transform .15s ease, box-shadow .2s ease;
+    }
+    .btn:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0, 255, 208, 0.35); }
+    .btn.secondary { color: #fff; background: linear-gradient(135deg, #ff7ab3, #ffb86b); box-shadow: 0 8px 22px rgba(255, 122, 179, 0.25); }
+
+    /* Шары */
+    .balloons {
+      position: fixed; inset: 0; pointer-events: none; z-index: 1;
+    }
+    .balloon {
+      position: absolute;
+      width: 28px; height: 36px;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      box-shadow: inset -6px -10px 18px rgba(0,0,0,0.15);
+      opacity: .85;
+      animation: float-up linear infinite;
+    }
+    .balloon::after { /* ниточка */
+      content: '';
+      position: absolute; left: 50%; bottom: -22px; transform: translateX(-50%);
+      width: 2px; height: 26px; background: #ffffff55; border-radius: 2px;
+    }
+    @keyframes float-up {
+      0% { transform: translateY(20vh) scale(0.9); }
+      100% { transform: translateY(-110vh) scale(1.02); }
+    }
+
+    /* Конфетти (canvas полноэкранный) */
+    #confettiCanvas { position: fixed; inset: 0; z-index: 3; pointer-events: none; }
+
+    footer {
+      text-align: center;
+      color: #bac0e6;
+      font-size: 12px;
+      opacity: 0.9;
+      padding: 18px 10px 40px;
+    }
+
+    /* Подарочная коробка и модальное окно */
+    .btn.gift {
+      background: linear-gradient(135deg, #ffd166, #ffcc00);
+      box-shadow: 0 8px 22px rgba(255, 204, 0, 0.28);
+      color: #2a1f00;
+    }
+
+    .gift-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(10, 12, 24, 0.6);
+      backdrop-filter: blur(4px);
+      z-index: 6; /* выше конфетти и шаров */
+    }
+    .gift-modal.open { display: flex; }
+
+    .gift-frame {
+      position: relative;
+      max-width: min(92vw, 860px);
+      max-height: min(88vh, 960px);
+      border-radius: 16px;
+      padding: 10px;
+      background: linear-gradient(135deg, #ffffff, #e8edff);
+      box-shadow: 0 20px 48px rgba(0,0,0,0.45);
+      border: 2px solid rgba(255,255,255,0.6);
+      animation: pop-in .22s ease-out;
+    }
+
+    .gift-frame .image-wrap {
+      background: #0e1022;
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.18);
+    }
+
+    .gift-frame img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      background: #0e1022;
+    }
+
+    .gift-close {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(255,255,255,0.35);
+      background: linear-gradient(135deg, rgba(255,255,255,0.18), rgba(255,255,255,0.08));
+      color: #fff;
+      font-weight: 800;
+      cursor: pointer;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.35);
+    }
+
+    @keyframes pop-in {
+      from { transform: scale(0.96); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="confettiCanvas"></canvas>
+  <div class="stars"></div>
+  <div class="balloons" id="balloons"></div>
+
+  <header class="hero">
+    <h1 class="headline" id="headline">С Днём Рождения, Легенда!</h1>
+    <p class="subline" id="subline">Сегодня мир официально стал на один день лучше ✨</p>
+    <div class="ribbon" id="ribbon">Лучший друг — лучший день</div>
+  </header>
+
+  <main>
+    <section class="card">
+      <div class="inner">
+        <h2 class="title"><span class="emoji">🎉</span><span id="titleName">Дорогой друг!</span></h2>
+        <p class="message" id="mainText"></p>
+        <div class="actions">
+          <button class="btn" id="btnConfetti">Запустить фейерверк 🎆</button>
+          <button class="btn gift" id="btnGift" aria-haspopup="dialog" aria-controls="giftModal">Подарок 🎁</button>
+          <button class="btn secondary" id="btnWish">Случайное тёплое пожелание 💌</button>
+        </div>
+      </div>
+      <div class="signature" id="signature"></div>
+    </section>
+
+    <section class="grid">
+      <div class="mini">
+        <h4>Наши легендарные качества</h4>
+        <p>Верность, поддержка, самоирония и умение ржать до слёз над самими собой. Пакет «Лучшие друзья» активирован навсегда.</p>
+      </div>
+      <div class="mini">
+        <h4>Планы на год</h4>
+        <p>Больше побед, больше путешествий, меньше поводов сомневаться в себе. И да — ещё один совместный подвиг в копилку!</p>
+      </div>
+      <div class="mini">
+        <h4>Миссия дня</h4>
+        <p>Поймать максимум радости, надуть минимум проблем и поделиться счастьем с теми, кто рядом. 🚀</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Подарочная коробка — модальное окно с картинкой в рамке -->
+  <div class="gift-modal" id="giftModal" role="dialog" aria-modal="true" aria-labelledby="giftTitle" aria-hidden="true">
+    <div class="gift-frame">
+      <button class="gift-close" id="btnCloseGift" aria-label="Закрыть">✕</button>
+      <div class="image-wrap">
+        <img id="giftImg" alt="Подарок для тебя" src="" />
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Сделано с теплом и пикселями ❤️
+  </footer>
+
+  <script>
+    // ========== ЛЁГКАЯ ПЕРСОНАЛИЗАЦИЯ ==========
+    const FRIEND_NAME = 'Дружище';                  // ← Имя друга, например: 'Саша'
+    const YOU_SIGN = 'Твой Дружище!';  // ← Твоя подпись
+    const OCCASION = 'С Днём Рождения!';        // ← Повод: 'С Днём Рождения!', 'С Днём Друга!', 'Поздравляю!'
+    const DATE_TEXT = '5 марта 2026';           // ← Дата вручения/поздравления
+
+    // Основной текст поздравления — можно смело редактировать
+    const BASE_MESSAGE = `
+Дружище, с Днём Рождения!
+
+Вот и пришла моя очередь тебя поздравлять — наша традиция, её мы не нарушаем.
+😊
+
+Знаешь, что меня особенно радует? В мире, где всё так непостоянно, 
+где люди приходят и уходят, где рушатся планы и меняются обстоятельства, 
+есть одна удивительная константа — это наша дружба.
+
+30 с лишним лет — мы прошли путь от друзей до братьев. И это не просто громкие слова.
+Мы знаем друг друга лучше, чем кто-либо, мы всегда рядом,
+что бы ни происходило.
+
+Желаю тебе, чтобы бизнес процветал и приносил не только прибыль,
+но и удовлетворение от того, что ты делаешь. Чтобы семья была
+крепостью и источником вдохновения.
+Чтобы здоровье никогда не подводило, а энергии хватало на все
+твои амбициозные планы.
+
+За тебя, Дружище! За следующие 30 лет! 🥂`;
+
+    // Список коротких пожеланий для кнопки «Случайное тёплое пожелание»
+    const WISHES = [
+      'Пусть каждое утро начинается с идеи, ради которой хочется вскакивать с кровати!',
+      'Побольше людей рядом, которые ценят тебя так же, как я.',
+      'Смелости говорить «да» мечтам и «нет» сомнениям.',
+      'Путешествий, на которых горизонты становятся шире, а кофе — вкуснее.',
+      'Проектов, которыми будешь гордиться!'
+    ];
+
+    // Вставляем тексты
+    document.getElementById('headline').textContent = `${OCCASION} — ${FRIEND_NAME}!`;
+    document.getElementById('subline').textContent = 'Сегодня мир официально стал на один день лучше ✨';
+    document.getElementById('ribbon').textContent = 'Лучший друг — лучший день';
+    document.getElementById('titleName').textContent = `Дорогой(ая), ${FRIEND_NAME}!`;
+    document.getElementById('mainText').textContent = BASE_MESSAGE.trim();
+    document.getElementById('signature').textContent = `${YOU_SIGN} • ${DATE_TEXT}`;
+
+    // ======= Конфетти (простая анимация на canvas) =======
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let W, H, confetti = [], rafId;
+    const colors = ['#ffd166', '#06d6a0', '#118ab2', '#ef476f', '#8338ec', '#ffbe0b'];
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize); resize();
+
+    function burstConfetti(count = 160) {
+      for (let i = 0; i < count; i++) {
+        confetti.push({
+          x: Math.random() * W,
+          y: Math.random() * H * 0.2 + H * 0.1,
+          r: Math.random() * 6 + 3,
+          c: colors[(Math.random() * colors.length) | 0],
+          vx: (Math.random() - 0.5) * 6,
+          vy: Math.random() * -6 - 3,
+          a: Math.random() * Math.PI,
+          va: (Math.random() - 0.5) * 0.2
+        });
+      }
+      if (!rafId) animate();
+    }
+
+    function animate() {
+      rafId = requestAnimationFrame(animate);
+      ctx.clearRect(0, 0, W, H);
+      for (let i = 0; i < confetti.length; i++) {
+        const p = confetti[i];
+        p.vy += 0.12; // гравитация
+        p.x += p.vx;
+        p.y += p.vy;
+        p.a += p.va;
+
+        // рисуем как ромбик/ленточку
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.a);
+        ctx.fillStyle = p.c;
+        ctx.fillRect(-p.r, -p.r * 0.6, p.r * 2, p.r * 1.2);
+        ctx.restore();
+      }
+      // чистим лишнее
+      confetti = confetti.filter(p => p.y < H + 20);
+      if (!confetti.length) { cancelAnimationFrame(rafId); rafId = null; }
+    }
+
+    document.getElementById('btnConfetti').addEventListener('click', () => burstConfetti(220));
+
+    // ======= Шары (несколько разноцветных, с разной скоростью) =======
+    const balloonsWrap = document.getElementById('balloons');
+    const balColors = ['#ff6b6b', '#ffd166', '#06d6a0', '#4cc9f0', '#b5179e', '#f72585'];
+
+    function spawnBalloon() {
+      const b = document.createElement('div');
+      b.className = 'balloon';
+      const size = 24 + Math.random() * 28;
+      b.style.width = size + 'px';
+      b.style.height = size * 1.25 + 'px';
+      b.style.left = Math.random() * 100 + 'vw';
+      b.style.bottom = '-10vh';
+      b.style.background = `radial-gradient( circle at 30% 30%, #ffffff88, ${balColors[(Math.random()*balColors.length)|0]} 60%)`;
+      const dur = 10 + Math.random() * 12;
+      b.style.animationDuration = dur + 's';
+      balloonsWrap.appendChild(b);
+      setTimeout(() => b.remove(), (dur + 1) * 1000);
+    }
+    setInterval(spawnBalloon, 900);
+    for (let i = 0; i < 10; i++) setTimeout(spawnBalloon, i * 300);
+
+    // ======= Кнопка «Случайное тёплое пожелание» =======
+    document.getElementById('btnWish').addEventListener('click', () => {
+      const wish = WISHES[(Math.random() * WISHES.length) | 0];
+      const p = document.createElement('p');
+      p.textContent = '• ' + wish;
+      p.style.marginTop = '10px';
+      p.style.color = '#f4f7ff';
+      p.style.fontWeight = '600';
+      document.querySelector('.card .inner').appendChild(p);
+      burstConfetti(120);
+    });
+
+    // Немного автоматической магии при загрузке
+    window.addEventListener('load', () => {
+      setTimeout(() => burstConfetti(180), 800);
+    });
+
+    // ======= Подарок: показываем картинку в модальном окне =======
+    const giftBtn = document.getElementById('btnGift');
+    const giftModal = document.getElementById('giftModal');
+    const giftImg = document.getElementById('giftImg');
+    const btnCloseGift = document.getElementById('btnCloseGift');
+
+    const GIFT_IMAGE_PATH = './img.png'; // локальный путь к картинке
+
+    let lastFocusedEl = null;
+
+    function openGift() {
+      lastFocusedEl = document.activeElement;
+      giftImg.src = GIFT_IMAGE_PATH;
+      giftModal.classList.add('open');
+      giftModal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      // фокус на кнопку закрытия
+      btnCloseGift.focus({ preventScroll: true });
+    }
+
+    function closeGift() {
+      giftModal.classList.remove('open');
+      giftModal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      // очищаем src, чтобы не держать файл в памяти при многократных открытиях
+      setTimeout(() => { giftImg.src = ''; }, 150);
+      // возвращаем фокус
+      if (lastFocusedEl && typeof lastFocusedEl.focus === 'function') {
+        lastFocusedEl.focus({ preventScroll: true });
+      }
+    }
+
+    giftBtn?.addEventListener('click', openGift);
+    btnCloseGift?.addEventListener('click', closeGift);
+
+    // клик по фону — закрытие
+    giftModal?.addEventListener('click', (e) => {
+      if (e.target === giftModal) closeGift();
+    });
+
+    // Esc — закрытие
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && giftModal.classList.contains('open')) {
+        closeGift();
+      }
+    });
+
+    // обработка ошибок загрузки изображения
+    giftImg.addEventListener('error', () => {
+      giftImg.alt = 'Картинка не найдена: проверь путь к файлу img.png';
+    });
+  </script>
+</body>
+</html>
